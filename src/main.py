@@ -5,14 +5,14 @@ Created on Mon Jan  4 16:06:56 2021
 
 @author: Cate
 """
-from ICC import ICC21
+from ICC import ICC21 # doesn't work
 import pandas as pd
 import os
 import numpy as np
 from sklearn import preprocessing
 from sklearn.model_selection import GridSearchCV, train_test_split
 
-source_folder = r'../data/'
+source_folder = r'data'
 df_E = pd.read_excel(os.path.join(source_folder, 'Myo_radiomics.xlsx'), sheet_name='Foglio1')
 df_GL = pd.read_excel(os.path.join(source_folder, 'Myo_radiomics_GL.xlsx'), sheet_name = 'Foglio1')
 
@@ -26,6 +26,7 @@ df_E_cut = df_E.loc[df_E['Case'].isin(cases)]
 df_GL = df_GL.drop(columns='Case')
 cols_rep = df_GL.columns
 print('Original number of features: ', len(cols_rep))
+## works till here because i don't have icc
 for col_rep in cols_rep:
     icc = ICC21(df_E_cut[col_rep],df_GL[col_rep])
     if (abs(icc) <= 0.80):
