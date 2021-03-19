@@ -13,7 +13,7 @@ import numpy as np
 from sklearn import preprocessing
 from sklearn.model_selection import GridSearchCV, train_test_split
 
-source_folder = r'D:\Users\Cate\Google Drive\Texture Analysis Myocarditis'
+source_folder = r'../data/'
 df_E = pd.read_excel(os.path.join(source_folder, 'Myo_radiomics.xlsx'), sheet_name='Foglio1')
 df_GL = pd.read_excel(os.path.join(source_folder, 'Myo_radiomics_GL.xlsx'), sheet_name = 'Foglio1')
 
